@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+
+    <!-- Google Fonts Link for Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif; /* Applied Playfair Display font */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Updated Navigation Bar to match home page style */
+        nav {
+            background-color: #d2b48c; /* Nude shade */
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-family: 'Brush Script MT', cursive;
+            color: #8b4513; /* Dark brown */
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #8b4513; /* Dark brown */
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid #deb887; /* Lighter brown */
+        }
+
+        .book-now {
+            background-color: #deb887; /* Lighter brown */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .book-now:hover {
+            background-color: #cd853f; /* Darker shade of nude */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 20px auto; /* Adjusted margin to avoid overlap with navbar */
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-box {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .review-box:last-child {
+            border-bottom: none;
+        }
+
+        .review-box h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .review-box p {
+            margin: 10px 0 0;
+            font-size: 14px;
+        }
+
+        .rating {
+            color: gold;
+            float: right;
+        }
+
+        .add-review {
+            background-color: #d2b48c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .add-review:hover {
+            background-color: #b8860b;
+        }
+
+        .reviewer-info {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .footer button {
+            background-color: #d2b48c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <div class="logo">Beffriss</div>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="breakfast-menu.html">Breakfast Menu</a></li>
+        <li><a href="guesthouse.html">Guesthouse</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rates.html">Rates</a></li>
+        <li><a href="availability.html">Availability</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <a href="booking.html" class="book-now">Book Now</a>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+    <button class="add-review">Add a Review</button>
+    <div class="review-box">
+        <h3>Luxury Haven Villa <span class="rating">★★★★★</span></h3>
+        <p>This place was absolutely breathtaking! The villa was immaculate and had stunning views. The staff was warm and accommodating, and they made our stay special. Highly recommend!</p>
+        <p class="reviewer-info">Couple | Stayed in 2024-09</p>
+    </div>
+    <div class="review-box">
+        <h3>Majestic Falls Lodge <span class="rating">★★★★★</span></h3>
+        <p>We had a fabulous family vacation here. The rooms were luxurious, and the lodge’s proximity to the waterfall was unbeatable. Our kids had a wonderful time at the pool too. We will definitely be back!</p>
+        <p class="reviewer-info">Family with kids | Stayed in 2024-07</p>
+    </div>
+    <div class="review-box">
+        <h3>Tranquil Bay Resort <span class="rating">★★★★★</span></h3>
+        <p>One of the best resorts I've ever stayed in! The peaceful surroundings, combined with the excellent service, made for a perfect getaway. Everything was first class.</p>
+        <p class="reviewer-info">Solo traveler | Stayed in 2024-08</p>
+    </div>
+    <div class="review-box">
+        <h3>Sapphire Sands Retreat <span class="rating">★★★★★</span></h3>
+        <p>The retreat exceeded all of our expectations. From the comfortable beds to the amazing service, everything was perfect. The views were absolutely mesmerizing.</p>
+        <p class="reviewer-info">Couple | Stayed in 2024-10</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <input type="email" placeholder="Your email address">
+    <button>Subscribe</button>
+</div>
+
+</body>
+</html>

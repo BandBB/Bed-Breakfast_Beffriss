@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Summary</title>
+
+    <!-- Google Fonts Link for Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif; /* Applied Playfair Display font */
+            background-color: #f7f8fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #3a3a3a;
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .summary-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .summary-details {
+            margin-top: 20px;
+        }
+
+        .summary-details h2 {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .summary-details p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .summary-box {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .continue-button {
+            display: block;
+            background-color: #ffc107;
+            color: #333;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .continue-button:hover {
+            background-color: #e0a800;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            padding: 20px;
+            background-color: #3a3a3a;
+            color: white;
+        }
+
+        .footer-privacy {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="breakfast-menu.html">Breakfast Menu</a></li>
+            <li><a href="guesthouse.html">Guesthouse</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="rates.html">Rates</a></li>
+            <li><a href="availability.html">Availability</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="activities.html">Activities</a></li>
+        </ul>
+    </nav>
+
+    <!-- Booking Summary Container -->
+    <div class="summary-container">
+        <h1>Booking Summary</h1>
+
+        <!-- Room and Guest Information -->
+        <div class="summary-details">
+            <div class="summary-box">
+                <h2>Room Details</h2>
+                <p><strong>Room Type:</strong> Deluxe Suite</p>
+                <p><strong>Check-in:</strong> October 15, 2024</p>
+                <p><strong>Check-out:</strong> October 18, 2024</p>
+                <p><strong>Guests:</strong> 2 Adults</p>
+            </div>
+
+            <!-- Pricing Breakdown -->
+            <div class="summary-box">
+                <h2>Pricing Breakdown</h2>
+                <p><strong>Room Rate (per night):</strong> $120</p>
+                <p><strong>Total Nights:</strong> 3</p>
+                <p><strong>Subtotal:</strong> $360</p>
+                <p><strong>Taxes (10%):</strong> $36</p>
+                <p><strong>Total Price:</strong> <span style="color: #e60000;"><strong>$396</strong></span></p>
+            </div>
+        </div>
+
+        <!-- Continue Button -->
+        <a href="payment.html" class="continue-button">Proceed to Payment</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Security & Payments</p>
+        <p class="footer-privacy">This site is protected by reCAPTCHA. Google's Privacy Policy and Terms of Service apply.</p>
+    </footer>
+
+</body>
+</html>

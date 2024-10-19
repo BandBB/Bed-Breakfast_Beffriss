@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability Calendar</title>
+
+    <!-- Google Fonts Link for Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif; /* Applied Playfair Display font */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            padding: 10px;
+            background-color: #d2b48c;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        /* Updated Navigation Bar style to match home page */
+        nav {
+            background-color: #d2b48c; /* Nude shade */
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-family: 'Brush Script MT', cursive;
+            color: #8b4513; /* Dark brown */
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #8b4513; /* Dark brown */
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid #deb887; /* Lighter brown */
+        }
+
+        .book-now {
+            background-color: #deb887; /* Lighter brown */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .book-now:hover {
+            background-color: #cd853f; /* Darker shade of nude */
+        }
+
+        /* Calendar Styles */
+        .calendar-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar {
+            width: 45%;
+        }
+
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .dropdown {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .dropdown select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .fa-calendar {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #d2b48c;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <div class="logo">Beffriss</div>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="breakfast-menu.html">Breakfast Menu</a></li>
+        <li><a href="guesthouse.html">Guesthouse</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rates.html">Rates</a></li>
+        <li><a href="availability.html">Availability</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <a href="booking.html" class="book-now">Book Now</a>
+    </ul>
+</nav>
+
+<header>
+    Availability Calendar
+</header>
+
+<div class="dropdown">
+    <i class="fas fa-calendar"></i> <!-- Calendar icon -->
+    <select id="monthDropdown">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+</div>
+
+<div class="calendar-container">
+    <div class="calendar">
+        <div class="calendar-header" id="monthName1"></div>
+        <table id="calendar1">
+            <!-- Calendar dates will be generated here -->
+        </table>
+    </div>
+    <div class="calendar">
+        <div class="calendar-header" id="monthName2"></div>
+        <table id="calendar2">
+            <!-- Calendar dates will be generated here -->
+        </table>
+    </div>
+</div>
+
+<script>
+    const today = new Date();
+    let month = today.getMonth() + 1; // Current month (1-12)
+    let year = today.getFullYear();
+
+    const monthDropdown = document.getElementById('monthDropdown');
+    monthDropdown.value = month;
+
+    monthDropdown.addEventListener('change', (e) => {
+        month = parseInt(e.target.value);
+        updateCalendar();
+    });
+
+    function generateCalendar(month, year, calendarElement) {
+        const daysInMonth = new Date(year, month, 0).getDate();
+        const firstDay = new Date(year, month - 1, 1).getDay();
+
+        let tableHTML = "<tr>";
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        for (let day of daysOfWeek) {
+            tableHTML += `<th>${day}</th>`;
+        }
+        tableHTML += "</tr><tr>";
+
+        // Add blank days for the first row if the month doesn't start on Sunday
+        for (let i = 0; i < firstDay; i++) {
+            tableHTML += "<td></td>";
+        }
+
+        // Add days of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+            tableHTML += `<td>${day}</td>`;
+            if ((day + firstDay) % 7 === 0) {
+                tableHTML += "</tr><tr>";
+            }
+        }
+
+        calendarElement.innerHTML = tableHTML;
+    }
+
+    function updateCalendar() {
+        const calendar1 = document.getElementById('calendar1');
+        const calendar2 = document.getElementById('calendar2');
+        const monthName1 = document.getElementById('monthName1');
+        const monthName2 = document.getElementById('monthName2');
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        monthName1.innerText = `${monthNames[month - 1]} ${year}`;
+        monthName2.innerText = `${monthNames[month % 12]} ${year + Math.floor(month / 12)}`;
+
+        generateCalendar(month, year, calendar1);
+        generateCalendar((month % 12) + 1, month === 12 ? year + 1 : year, calendar2);
+    }
+
+    window.onload = updateCalendar;
+</script>
+
+</body>
+</html>
